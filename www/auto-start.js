@@ -21,13 +21,17 @@
 
 var exec    = require('cordova/exec');
 
+function AutoStart() {
+    var me = this;
+}
+
 /**
  * Android: activates the automatic start of your app
  *           after the reboot of the device
  *
  * macOS: N/A.
  */
-exports.enable = function () {
+AutoStart.prototype.enable = function () {
     cordova.exec(null, null, 'AutoStart', 'enable', []);
 };
 
@@ -38,7 +42,7 @@ exports.enable = function () {
  * macOS: enables a helper application, with bundle identifier, `id`,
  *        to launch at boot.
  */
-exports.enableService = function (id) {
+AutoStart.prototype.enableService = function (id) {
     cordova.exec(null, null, 'AutoStart', 'enableService', [id]);
 };
 
@@ -49,6 +53,9 @@ exports.enableService = function (id) {
  * macOS: disables a previously enabled helper application from launching
  *         at boot.
  */
-exports.disable = function () {
+AutoStart.prototype.disable = function () {
     cordova.exec(null, null, 'AutoStart', 'disable', []);
 };
+
+window.plugins = window.plugins || {};
+window.plugins.autoStart = new AutoStart();
