@@ -24,6 +24,7 @@
     <!-- js -->
     <js-module src="www/auto-start.js" name="AutoStart">
         <clobbers target="cordova.plugins.autoStart" />
+        <clobbers target="plugins.autoStart" />
     </js-module>
 
     <!-- android -->
