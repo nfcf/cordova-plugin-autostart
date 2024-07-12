@@ -57,5 +57,5 @@ AutoStart.prototype.disable = function () {
     cordova.exec(null, null, 'AutoStart', 'disable', []);
 };
 
-window.plugins = window.plugins || {};
-window.plugins.autoStart = new AutoStart();
+var autoStart = new AutoStart();
+module.exports = autoStart;
